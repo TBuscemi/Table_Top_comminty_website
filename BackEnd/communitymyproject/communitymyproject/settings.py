@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "communityapp"
 ]
 
 MIDDLEWARE = [
@@ -75,14 +76,14 @@ WSGI_APPLICATION = 'communitymyproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': "mysql.connector.django",
-        'NAME': "community_database",
-        "USER":"root",
-        "PASSWORD":"password",
-        "Host":"127.0.0.1",
-        "PORT":"3306",
-        "OPTIONS":{
-            "autocommit": True
+        'ENGINE': 'mysql.connector.django',
+        'NAME': 'community_database',
+        "USER":'root',
+        'PASSWORD':'password',
+        'Host':'127.0.0.1',
+        'PORT':'3306',
+        'OPTIONS':{
+            'autocommit': True
         }
     }   
 }
