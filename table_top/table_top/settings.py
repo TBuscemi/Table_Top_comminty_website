@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'authentication.app.AuthenticationConfig',
 ]
 
 MIDDLEWARE = [
@@ -124,6 +126,9 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+REST_FRAMEWORK={
+    'DEFAULT_AUTHENTICATION_CLASS': ('rest_framework_simplejwt.authentication.JWTAuthentication',)
+}
 
 try:
     from table_top.local_settings import *
