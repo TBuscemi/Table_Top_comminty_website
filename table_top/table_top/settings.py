@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+from table_top import friends_list
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'authentication.apps.AuthenticationConfig',
+    'user_chat.apps.UserChatConfig,'
+    'chat.apps.ChatConfig,'
+    'friends_list.apps.FriendsListConfig,'
+    'character_cards.apps.CharacterCardsConfig,'
+    'account.apps.AccountsConfig,'
+
 ]
 
 MIDDLEWARE = [
