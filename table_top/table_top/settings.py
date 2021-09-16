@@ -40,11 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'authentication.apps.AuthenticationConfig',
-    'user_chat.apps.UserChatConfig,'
-    'chat.apps.ChatConfig,'
-    'friends_list.apps.FriendsListConfig,'
-    'character_cards.apps.CharacterCardsConfig,'
-    'account.apps.AccountsConfig,'
+    'user_chat.apps.UserChatConfig',
+    'chat.apps.ChatConfig',
+    'friends_list.apps.FriendsListConfig',
+    'character_cards.apps.CharacterCardsConfig',
+    'account.apps.AccountsConfig',
+    'user_friends.apps.UserFriendsConfig',
 
 ]
 
