@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.modles import User
+from django.contrib.auth.models import User
 
 class Character_Cards (models.Model):
     # fk
