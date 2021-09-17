@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -8,9 +9,9 @@ from .serializers import AccountSerializer
 from django.contrib.auth.models import User
 
 class AccountList(APIView):
-
-    permission_classes = [AllowAny,]
-
+    
+    permission_classes = [AllowAny]
+  
     def get(self, request):
         accounts = Account.objects.all()
         serializer = AccountSerializer(accounts, many=True)
