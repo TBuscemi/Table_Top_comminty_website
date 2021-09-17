@@ -8,12 +8,10 @@ from .models import CharacterCards
 from .serializers import CharacterCardsSerializer
 from django.contrib.auth.models import User
 
-class CharacterCardsList(APIView):
-    
-    permission_classes = [AllowAny]
-  
-    def get(self, request):
-        Card = CharacterCards.objects.all()
-        serializer = CharacterCardsSerializer(Card, many=True)
-        return Response(serializer.data)
+@api_view(['GET'])
+@permission_classes ([AllowAny])
+def get_all_accounts(request):
+    accounts = CharacterCards.objects.all()
+    serializer = CharacterCardsSerializer(accounts, many=True)
+    return Response(serializer.data)
         
