@@ -2,5 +2,6 @@ from django.urls import path
 from account import views
 
 urlpatterns = [
-    path('', views.AccountList.as_view())
+    path('all/', views.get_all_accounts),
+    path(' ', views.User_post)
 ]
