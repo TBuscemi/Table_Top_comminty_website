@@ -2,8 +2,7 @@ from django.urls import path
 from character_cards import views
 
 urlpatterns = [
-    path('allcharacter_cards/', views.get_all_character_cards),
-    path('postcharacter_cards', views.post_character_cards),
-    path('getcharacter_cards/ ', views.get_character_cards),
-    path('deletecharacter_cards', views.delete),
+    path('character_cards/', views.Cards.as_view()), 
+    path('character_cards/<int:pk>/ ', views.Cards_By_User.as_view()),
+   
 ]

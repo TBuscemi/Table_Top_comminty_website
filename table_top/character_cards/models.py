@@ -6,4 +6,4 @@ class CharacterCards (models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     character_name= models.CharField(max_length=30)
     character_description = models.CharField(max_length=500)
-    character_image = models.ImageField
+    character_image = models.ImageField()

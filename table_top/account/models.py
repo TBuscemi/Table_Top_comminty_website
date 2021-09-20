@@ -8,5 +8,6 @@ class Account(models.Model):
     game_systems_looking_for = models.CharField(max_length=255)
     campaign_length = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
-    player = models.BooleanField(False)
-    gm = models.BooleanField(False)
+    player = models.CharField(max_length=200)
+    gm = models.CharField(max_length=200)
+    # looking_for_game = models.CharField(max_length=200) 
