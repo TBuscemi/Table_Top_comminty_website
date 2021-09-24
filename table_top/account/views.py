@@ -48,13 +48,13 @@ from account import serializers
 #         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 
-class Accounts(APIView):
+class Accounts_Get(APIView):
     
     def get(self, request):
         accounts = Account.objects.all()
         serializer = AccountSerializer(accounts, many=True)
         return Response(serializer.data)
-
+                                                                                                                                                                                                                                                                                                                                                    
     def post(self, request):
         serializer = AccountSerializer(data=request.data)
         if serializer.is_valid():
@@ -82,6 +82,12 @@ class Account_By_User(APIView):
             return Account.objects.get(user_id=uid)
         except Account.DoesNotExist:
             raise Http404
+
+    def search_username(self,request): 
+        account = Account.objects.filter(user_name=username)
+        serializer = AccountSerializer(account, many=True)
+        return Response(serializer.data)
+        
 
     def get(self, request, uid):
         account = self.get_account(uid)
