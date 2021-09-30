@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Account(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     discord = models.CharField(max_length=50)
     platform_played_on = models.CharField(max_length=200)
     game_systems_looking_for = models.CharField(max_length=255)
@@ -10,5 +10,4 @@ class Account(models.Model):
     description = models.CharField(max_length=255)
     player = models.CharField(max_length=200)
     gm = models.CharField(max_length=200)
-    # looking_for_gm_or_player = models.CharField(max_length=200)
-    # looking_for_game = models.CharField(max_length=200) 
+    looking_for_game     = models.CharField(max_length=200) 

@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 import account
 from django.http import response
 from rest_framework import status
@@ -8,7 +9,6 @@ from rest_framework.decorators import api_view, permission_classes
 from .models import Account
 from .serializers import AccountSerializer
 from django.http import Http404
-
 from account import serializers
 
 
@@ -79,15 +79,10 @@ class Account_By_User(APIView):
 
     def get_account(self, uid):
         try:
-            return Account.objects.get(user_id=uid)
+            return Account.objects.get(user=uid)
         except Account.DoesNotExist:
             raise Http404
 
-    def search_username(self,request): 
-        account = Account.objects.filter(user_name=username)
-        serializer = AccountSerializer(account, many=True)
-        return Response(serializer.data)
-        
 
     def get(self, request, uid):
         account = self.get_account(uid)
@@ -96,13 +91,11 @@ class Account_By_User(APIView):
 
     def put(self, request, uid):
         account = self.get_account(uid)
+        # request.data['user'] = serializer 
         serializer = AccountSerializer(account, data=request.data)
-        if serializer.is_valid():
-            serializer.update(account, request.data)
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+        serializer.update(account, request.data)
+        return Response(serializer.data)
+        
 class Account_Search (APIView):
     
     def post(self,request):
@@ -117,6 +110,8 @@ class Account_Search (APIView):
             criteria = criteria.filter(player = request.data['player'])
         if request.data['gm'] is not '':
             criteria = criteria.filter(gm = request.data['gm'])
+        if request.data['looking_for_game'] is not '':
+            criteria = criteria.filter(gm = request.data['looking_for_game'])
         serializer = AccountSerializer(criteria, many = True)
         return Response(serializer.data)
 

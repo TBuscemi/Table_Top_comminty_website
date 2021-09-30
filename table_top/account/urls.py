@@ -6,4 +6,5 @@ urlpatterns = [
     path('user/<int:uid>/', views.Account_By_User.as_view()),
     path('<int:pk>/ ', views.Account_Query.as_view()),
     path('search/',views.Account_Search.as_view())
+    
 ]
