@@ -30,3 +30,8 @@ class AccountSerializer(serializers.ModelSerializer):
             account.save()
 
             return account
+        
+        def create(self, validated_data):
+            account = Account.objects.create(
+            user=validated_data['username'])
+            account.save

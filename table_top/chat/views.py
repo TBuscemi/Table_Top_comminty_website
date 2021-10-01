@@ -45,6 +45,7 @@ from django.http import Http404
 #         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 class Cards_By_User(APIView):
+
     
     def get_chat(self, pk):
         try:
@@ -71,3 +72,6 @@ class Cards_By_User(APIView):
         serializer = ChatSerializer(chat)
         chat.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)    
+
+
+# class Post_User(APIView):

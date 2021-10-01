@@ -60,7 +60,7 @@ class Accounts_Get(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) 
 
 class Account_Query(APIView):
 
@@ -95,6 +95,14 @@ class Account_By_User(APIView):
         serializer = AccountSerializer(account, data=request.data)
         serializer.update(account, request.data)
         return Response(serializer.data)
+
+    def post(self, request ):
+        serializer = AccountSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400__BAD_REQUEST)
+
         
 class Account_Search (APIView):
     

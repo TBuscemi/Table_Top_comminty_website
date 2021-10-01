@@ -10,4 +10,4 @@ class Account(models.Model):
     description = models.CharField(max_length=255)
     player = models.CharField(max_length=200)
     gm = models.CharField(max_length=200)
-    looking_for_game     = models.CharField(max_length=200) 
+    looking_for_game = models.CharField(max_length=200) 
