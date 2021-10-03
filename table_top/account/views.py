@@ -11,43 +11,6 @@ from .serializers import AccountSerializer
 from django.http import Http404
 from account import serializers
 
-
-    
-
-# @api_view(['GET'])
-# @permission_classes ([AllowAny])
-# def get_all_accounts(request):
-#     accounts = Account.objects.all()
-#     serializer = AccountSerializer(accounts, many=True)
-#     return Response(serializer.data)
-
-# @api_view(['GET'])
-# @permission_classes ([AllowAny])
-# def get_account(request):
-#         accounts = Account.objects.get(id)
-#         serializer = AccountSerializer(accounts, many=True)
-#         return Response(serializer.data)
-
-
-# @api_view(['DELETE'])
-# @permission_classes ([AllowAny])
-# def delete(request):
-#         accounts = Account.objects.delete(id)
-#         accounts.delete()
-#         return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-# @api_view(['POST'])
-# @permission_classes ([AllowAny])
-# def post_user(request):
-#     if request.method == 'POST':
-#         serializer = AccountSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save(user=request.user)
-#             return Response (serializer.data, status=status.HTTP_204_CREATED)
-#         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-
-
 class Accounts_Get(APIView):
     
     def get(self, request):
@@ -90,18 +53,17 @@ class Account_By_User(APIView):
         return Response(serializer.data)
 
     def put(self, request, uid):
-        account = self.get_account(uid)
-        # request.data['user'] = serializer 
+        account = self.get_account(uid) 
         serializer = AccountSerializer(account, data=request.data)
         serializer.update(account, request.data)
         return Response(serializer.data)
 
-    def post(self, request ):
+    def post(self, request):
         serializer = AccountSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400__BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
         
 class Account_Search (APIView):

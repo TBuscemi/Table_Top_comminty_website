@@ -4,6 +4,7 @@ from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 
 
+
 class RegistrationSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=True, validators=[
     UniqueValidator(queryset=User.objects.all())])
@@ -24,3 +25,5 @@ class RegistrationSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+
+
