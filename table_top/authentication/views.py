@@ -31,12 +31,12 @@ class UserPostGet(APIView):
             return Response (status = 404)
 
     def get(self, request, pk):
-        user = self.get_user(pk=pk)
+        user = self.get_user(pk)
         serializer = RegistrationSerializer(user)
         return Response(serializer.data)
 
     def put(self,request, pk):
-        user = self.get_user(pk=pk)
+        user = self.get_user(pk)
         serializer = RegistrationSerializer(user, data=request.data)
         if  serializer.is_valid():    
             serializer.save()

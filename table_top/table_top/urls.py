@@ -20,10 +20,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('authentication.urls')),
     path('api/account/', include('account.urls')),
-    path('api/character_cards/', include('character_cards.urls')),
     path('api/chat/', include('chat.urls')),
     path('api/friends_list/', include('friends_list.urls')),
     path('api/user_chat/', include('user_chat.urls')),
     path('api/user_friends/', include('user_friends.urls')),
+    path('api/videos/', include('videos.urls')),
 
 ]

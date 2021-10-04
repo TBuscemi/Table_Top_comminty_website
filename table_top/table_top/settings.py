@@ -44,9 +44,9 @@ INSTALLED_APPS = [
     'chat.apps.ChatConfig',
     'user_chat.apps.UserChatConfig',
     'friends_list.apps.FriendsListConfig',
-    'character_cards.apps.CharacterCardsConfig',
     'account.apps.AccountConfig',
     'user_friends.apps.UserFriendsConfig',
+    'videos.apps.VideosConfig',
 
 ]
 
