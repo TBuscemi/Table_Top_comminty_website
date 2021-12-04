@@ -12,3 +12,5 @@ class Account(models.Model):
     looking_for_game = models.CharField(max_length=200) 
     party_leaders =  models.CharField(max_length=200) 
     chat_name =  models.CharField(max_length=200) 
+    rating = models.CharField(max_length=200)
+    lvl_of_rp = models.CharField(max_length=200)

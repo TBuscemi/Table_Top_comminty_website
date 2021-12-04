@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        fields = ['user','discord','platform_played_on','game_systems_looking_for','campaign_length','player','gm','looking_for_game','party_leaders','chat_name']
+        fields = ['user','discord','platform_played_on','game_systems_looking_for','campaign_length','player','gm','looking_for_game','party_leaders','chat_name', 'rating', 'lvl_of_rp']
      
 
         def getUser(self, uid):
@@ -27,6 +27,8 @@ class AccountSerializer(serializers.ModelSerializer):
             account.looking_for_game=validated_data['looking_for_game']
             account.party_leaders=validated_data['party_leaders']
             account.chat_name=validated_data['chat_name']
+            account.rating=validated_data['rating']
+            account.lvl_of_rp=validated_data['lvl_of_rp']
             
             account.save()
 
